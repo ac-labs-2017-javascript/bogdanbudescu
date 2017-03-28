@@ -4,7 +4,7 @@ var express = require("express");
 var app = express();
 
 app.get("/hello",function(req,res){
-	res.send("de");
+	res.send("de test");
 });
 
 app.listen(3000,function(){
