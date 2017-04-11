@@ -27,19 +27,7 @@ function storeData(val){
 
 console.log(val.length)
   db.serialize(function() {
-  db.run("CREATE TABLE pizzas (title TEXT, ingrediente TEXT, pret TEXT, pret_1 TEXT, img TEXT)");
  
-  var stmt = db.prepare("INSERT INTO pizzas (title, ingrediente, pret, pret_1, img) VALUES (?,?,?,?,?)");
-  for (var i = 0; i < val.length; i++) {
-      stmt.run(val[i].title,val[i].ingrediente,val[i].pret,val[i].pret_1,val[i].img);
-	
-  } 
-  stmt.finalize();
- 
-  db.each("SELECT title AS id FROM pizzas", function(err, row) {
-      console.log(row.id);
-  });
- });
 db.close();
 }
 
